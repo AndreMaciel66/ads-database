@@ -1,4 +1,3 @@
 # ads-database
 
-https://medium.com/@renato.groffe/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89
-
+![a](https://github.com/AndreMaciel66/ads-database/blob/master/imgs/postgres-docker.gif "gif teste")
