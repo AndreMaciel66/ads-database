@@ -41,7 +41,7 @@ networks:
 
 ```
 
-![Gif](../docs/imgs/postgres-docker.gif "Image Title")
+![Gif](https://github.com/AndreMaciel66/ads-database/blob/gh-pages/imgs/postgres-docker.gif?raw=true "Image Title")
 
 ## Create Tables
 
