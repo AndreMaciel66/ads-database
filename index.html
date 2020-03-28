@@ -216,6 +216,60 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#create-tables" class="md-nav__link">
+    Create Tables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-clientes" class="md-nav__link">
+    Tabela Clientes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabela-carros" class="md-nav__link">
+    Tabela Carros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabela-aluguel" class="md-nav__link">
+    Tabela Aluguel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inserindo-registros" class="md-nav__link">
+    Inserindo registros
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert-into-carros" class="md-nav__link">
+    Insert Into Carros
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -258,6 +312,60 @@
           <li class="md-nav__item">
   <a href="#entendendo-o-docker-compose" class="md-nav__link">
     Entendendo o docker compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-tables" class="md-nav__link">
+    Create Tables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-clientes" class="md-nav__link">
+    Tabela Clientes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabela-carros" class="md-nav__link">
+    Tabela Carros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabela-aluguel" class="md-nav__link">
+    Tabela Aluguel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inserindo-registros" class="md-nav__link">
+    Inserindo registros
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert-into-carros" class="md-nav__link">
+    Insert Into Carros
   </a>
   
 </li>
@@ -318,6 +426,99 @@ services:
 networks:
   postgres-compose-network:
     driver: bridge
+</code></pre></div>
+
+
+<p><img alt="Docker-Gif" src="../imgs/postgres-docker.gif" /></p>
+<h2 id="create-tables">Create Tables</h2>
+<p>Para criar as tabelas utilizei os seguintes comandos abaixo:</p>
+<h3 id="tabela-clientes">Tabela Clientes</h3>
+<p>Na tabela de clientes temos vários campos que são referentes aos clientes, para cadastro posterior em alguma aplicação web, por exemplo.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">dbo</span><span class="p">.</span><span class="n">cliente</span>
+<span class="p">(</span>
+    <span class="n">id_cliente</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">nome</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">dtnasc</span> <span class="nb">date</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">cpf</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">cnh</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">endereco</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">id_cliente</span><span class="p">)</span>
+<span class="p">)</span> 
+</code></pre></div>
+
+
+<h3 id="tabela-carros">Tabela Carros</h3>
+<p>A tabela carro também segue a mesma lógica da tabela de clientes, utilizando somente uma chave primária e por enquanto nenhuma <code>foreign key</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">dbo</span><span class="p">.</span><span class="n">carros</span>
+<span class="p">(</span>
+    <span class="n">id_carro</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">placa</span> <span class="nb">char</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">marca</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">modelo</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">ano</span> <span class="nb">int</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">kmatual</span> <span class="nb">int</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">valorkm</span> <span class="nb">bigint</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">id_carro</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<h3 id="tabela-aluguel">Tabela Aluguel</h3>
+<p>Esta tabela faz referencias para as chaves secundárias vindo da tabela <code>carros</code>e <code>clientes</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">dbo</span><span class="p">.</span><span class="n">aluguel</span>
+<span class="p">(</span>
+    <span class="n">id_aluguel</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">id_cliente</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">id_carro</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">dtaluguelinicial</span> <span class="nb">date</span> <span class="k">default</span> <span class="k">null</span><span class="p">,</span>
+    <span class="n">dtaluguelfinal</span> <span class="nb">date</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">kminicial</span> <span class="nb">int</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">kmfinal</span> <span class="nb">int</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">valortotal</span> <span class="nb">bigint</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">id_aluguel</span><span class="p">),</span>
+    <span class="k">CONSTRAINT</span> <span class="n">aluguel_ibfk_1</span> <span class="k">FOREIGN</span> <span class="k">KEY</span>
+    <span class="p">(</span><span class="n">id_cliente</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">dbo</span><span class="p">.</span><span class="n">cliente</span>
+    <span class="p">(</span><span class="n">id_cliente</span><span class="p">),</span>
+    <span class="k">CONSTRAINT</span> <span class="n">aluguel_ibfk_2</span> <span class="k">FOREIGN</span> <span class="k">KEY</span>
+    <span class="p">(</span><span class="n">id_carro</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">dbo</span><span class="p">.</span><span class="n">carros</span>
+    <span class="p">(</span><span class="n">id_carro</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<h2 id="inserindo-registros">Inserindo registros</h2>
+<p>Segundo a tarefa passada pelo professor, devemos inserir 5 registros em cada tabela.</p>
+<h3 id="insert-into-carros">Insert Into Carros</h3>
+<p>Como vcs podem ver no código abaixo, eu utilizei uma extensão do VSCODE chamada <code>Prettier</code> para formatar o código de uma maneira mais legível - inclusive estou utilizando em todo o meu repositório.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">INSERT</span> <span class="k">INTO</span> 
+<span class="n">dbo</span><span class="p">.</span><span class="n">carros</span>
+    <span class="p">(</span><span class="n">id_carro</span><span class="p">,</span> <span class="n">placa</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">ano</span><span class="p">,</span> <span class="n">kmatual</span><span class="p">,</span> <span class="n">valorkm</span><span class="p">)</span>
+<span class="k">VALUES</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;hjs-7929&#39;</span><span class="p">,</span> <span class="s1">&#39;Onix&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">92</span><span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> 
+<span class="n">dbo</span><span class="p">.</span><span class="n">carros</span>
+    <span class="p">(</span><span class="n">id_carro</span><span class="p">,</span> <span class="n">placa</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">ano</span><span class="p">,</span> <span class="n">kmatual</span><span class="p">,</span> <span class="n">valorkm</span><span class="p">)</span>
+<span class="k">VALUES</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;pwd-1234&#39;</span><span class="p">,</span> <span class="s1">&#39;BMW&#39;</span><span class="p">,</span> <span class="s1">&#39;Advanced&#39;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">15000</span><span class="p">,</span> <span class="mi">80</span><span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> 
+<span class="n">dbo</span><span class="p">.</span><span class="n">carros</span>
+    <span class="p">(</span><span class="n">id_carro</span><span class="p">,</span> <span class="n">placa</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">ano</span><span class="p">,</span> <span class="n">kmatual</span><span class="p">,</span> <span class="n">valorkm</span><span class="p">)</span>
+<span class="k">VALUES</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;peg-5520&#39;</span><span class="p">,</span> <span class="s1">&#39;Pegeaut&#39;</span><span class="p">,</span> <span class="s1">&#39;207&#39;</span><span class="p">,</span> <span class="mi">1999</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> 
+<span class="n">dbo</span><span class="p">.</span><span class="n">carros</span>
+    <span class="p">(</span><span class="n">id_carro</span><span class="p">,</span> <span class="n">placa</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">ano</span><span class="p">,</span> <span class="n">kmatual</span><span class="p">,</span> <span class="n">valorkm</span><span class="p">)</span>
+<span class="k">VALUES</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;fer-1111&#39;</span><span class="p">,</span> <span class="s1">&#39;Ferrari&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermelha&#39;</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">15000</span><span class="p">,</span> <span class="mi">75</span><span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> 
+<span class="n">dbo</span><span class="p">.</span><span class="n">carros</span>
+    <span class="p">(</span><span class="n">id_carro</span><span class="p">,</span> <span class="n">placa</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">ano</span><span class="p">,</span> <span class="n">kmatual</span><span class="p">,</span> <span class="n">valorkm</span><span class="p">)</span>
+<span class="k">VALUES</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;cit-9999&#39;</span><span class="p">,</span> <span class="s1">&#39;Citroen&#39;</span><span class="p">,</span> <span class="s1">&#39;c3&#39;</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">45000</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
 </code></pre></div>
                 
                   
