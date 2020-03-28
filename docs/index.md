@@ -41,8 +41,7 @@ networks:
 
 ```
 
-![Docker-Gif](../imgs/postgres-docker.gif)
-
+![Gif](../docs/imgs/postgres-docker.gif "Image Title")
 
 ## Create Tables
 
