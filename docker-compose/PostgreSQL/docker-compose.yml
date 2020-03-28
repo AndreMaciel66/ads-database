@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  postgres-2:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5555:5555"
+    volumes:
+      - /Users/a116822/npc/ads-database/docker-compose/PostgreSQL/Data:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+
+  pgadmin-2:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "andretmaciel@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres-2
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
